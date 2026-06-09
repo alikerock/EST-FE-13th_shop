@@ -1,14 +1,19 @@
-import { readCart, updateCartCount } from "./utils/common.js";
+import { readCart, writeCart, updateCartCount } from "./utils/common.js";
+
+const cartList = document.querySelector(".cart-list");
+const cartCountText = document.querySelector(".cart-count-text");
 
 updateCartCount();
-const cartList = document.querySelector(".cart-list");
 const cart = readCart();
 console.log(cart);
 
 const cartHTML = cart.map(
   item =>
     `<article class="cart-item">
-      <span class="item-check"><span class="check-box" aria-hidden="true"></span></span>
+      <label class="item-check">
+        <input type="checkbox"/>               
+      </label>    
+
       <div class="cart-thumb">
         <img
           src="${item.thumb}"
